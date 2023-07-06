@@ -76,4 +76,4 @@ const deleteAdmin =  async (req,res)=>{ //DELETE
 };
 
 
-module.exports = {getAllDesserts,getSingleDessert, newDessert,updateDessert,deleteDessert};
+module.exports = {getAllAdmins,getSingleAdmin, newAdmin,updateAdmin,deleteAdmin};
