@@ -1,0 +1,13 @@
+###POST METHOD DISHES###############
+POST http://localhost:3000/newDish 
+content-type: application/json
+
+{
+  "name": "dish03",
+  "description": "desc03", 
+  "price": "$1000"
+}
+
+
+
+############################
