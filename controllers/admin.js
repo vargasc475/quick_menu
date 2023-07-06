@@ -1,15 +1,15 @@
 const db = require('../models');
-const dishData = db.dishes;
+const adminData = db.admins;
 const ObjectId = require('mongodb').ObjectId;
-//const { ObjectId } = require('mongodb');
 
 
-////////To create a new DISH in database
-exports.newDish = (req, res) => {
 
-  const postDish = new dishData(req.body);
+////////To create a new ADMIN in database
+exports.newAdmin = (req, res) => {
 
-  postDish
+  const postAdmin = new adminData(req.body);
+
+  postAdmin
     .save()
     .then((data) => {
       console.log(data);
@@ -24,12 +24,12 @@ exports.newDish = (req, res) => {
 
 
 
-////////METHOD To DELETE a DISH in database BY ID
-exports.deleteDish = ('/:id', async (req, res, next) => {
+////////METHOD To DELETE ADMIN in database BY ID
+exports.adminDelete = ('/:id', async (req, res, next) => {
   const { id } = req.params;
   try {
-    const deleteDish = await dishData.findByIdAndDelete(id);
-    res.status(200).json(deleteDish);
+    const adminToDelete = await adminData.findByIdAndDelete(id);
+    res.status(200).json(this.adminToDelete);
   } catch (error) {
     res.status(400);
     next(error);

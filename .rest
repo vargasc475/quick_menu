@@ -7,7 +7,58 @@ content-type: application/json
   "description": "desc03", 
   "price": "$1000"
 }
+###
 
+###DELETE METHOD DISHES###############
+DELETE  http://localhost:3000/deleteDish/64a6c4d3b4055f7bd5dc4d4c
+content-type: application/json
 
 
 ############################
+###POST METHOD DESSERTS###############
+POST http://localhost:3000/newDessert 
+content-type: application/json
+
+{
+  "name": "dessert01",
+  "description": "desert01", 
+  "price": "$100"
+}
+###
+
+###DELETE METHOD DESSERTS###############
+DELETE  http://localhost:3000/deleteDessert/64a6f6e7ad6261357951c363 
+content-type: application/json
+###
+
+############################
+###POST METHOD ADMIN###############
+POST http://localhost:3000/newAdmin 
+content-type: application/json
+
+{
+  "user": "password01",
+  "password": "12345"
+}
+###
+
+###DELETE METHOD ADMIN###############
+DELETE  http://localhost:3000/deleteAdmin/64a6fb51fd978bd7d08deb0b 
+content-type: application/json
+###
+
+###POST METHOD ORDER###############
+POST http://localhost:3000/newOrder 
+content-type: application/json
+
+{
+  "dish": "order01",
+  "dessert": "dessert01",
+  "date": "order01" 
+}
+###
+
+###DELETE METHOD ORDER###############
+DELETE  http://localhost:3000/deleteOrder/64a7021579652fe1214d5182 
+content-type: application/json
+###

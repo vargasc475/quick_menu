@@ -1,15 +1,15 @@
 const db = require('../models');
-const dishData = db.dishes;
+const orderData = db.orders;
 const ObjectId = require('mongodb').ObjectId;
-//const { ObjectId } = require('mongodb');
 
 
-////////To create a new DISH in database
-exports.newDish = (req, res) => {
 
-  const postDish = new dishData(req.body);
+////////To create a new ORDER in database
+exports.newOrder = (req, res) => {
 
-  postDish
+  const postOrder = new orderData(req.body);
+
+  postOrder
     .save()
     .then((data) => {
       console.log(data);
@@ -24,12 +24,12 @@ exports.newDish = (req, res) => {
 
 
 
-////////METHOD To DELETE a DISH in database BY ID
-exports.deleteDish = ('/:id', async (req, res, next) => {
+////////METHOD To DELETE ORDER in database BY ID
+exports.orderDelete = ('/:id', async (req, res, next) => {
   const { id } = req.params;
   try {
-    const deleteDish = await dishData.findByIdAndDelete(id);
-    res.status(200).json(deleteDish);
+    const orderToDelete = await orderData.findByIdAndDelete(id);
+    res.status(200).json(this.orderToDelete);
   } catch (error) {
     res.status(400);
     next(error);
