@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "API Dishes",
-    "description": "This the final project",
+    "description": "QUICK MENU PROJECT",
     "version": "1.0.0"
   },
   "host": "localhost:3000",
@@ -11,9 +11,34 @@
     "http"
   ],
   "paths": {
+    "/getDishes": {
+      "get": {
+        "description": "only push try it out and get all dishes",
+        "summary": "get all the dishes",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
     "/newDish": {
       "post": {
-        "description": "",
+        "summary": "Create a new dish",
+        "description": "fill the fields and create a new dish",
+        "parameters":[
+          {
+            "name": "body",
+            "in": "body",
+            "schema":{
+              "type": "object",
+              "$ref": "#/definitions/dish"
+            }
+          }
+        ],
         "responses": {
           "201": {
             "description": "Created"
@@ -26,7 +51,8 @@
     },
     "/deleteDish/{id}": {
       "delete": {
-        "description": "",
+        "description": "set an id and delete ay dish",
+        "summary": "Delete any dish",
         "parameters": [
           {
             "name": "id",
@@ -44,6 +70,233 @@
           }
         }
       }
+    },
+    "/getDesserts": {
+      "get": {
+        "description": "Try it out and get all the desserts",
+        "summary": "get all desserts",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/newDessert": {
+      "post": {
+        "description": "upload a new dessert",
+        "summary":"care men working!",
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/deleteDessert/{id}": {
+      "delete": {
+        "description": "set any dessert id and delete a delete",
+        "summary": "delete any dessert",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/getAdmin": {
+      "get": {
+        "description": "Try it out and get all admins",
+        "summary": "get all admins",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/newAdmin": {
+      "post": {
+        "description": "create a new admin",
+        "summary": "care men working!!!!!!!!!!!",
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/deleteAdmin/{id}": {
+      "delete": {
+        "description": "With any admin id delete it",
+        "summary": "delete an admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/getOrders": {
+      "get": {
+        "description": "try it out and get all orders",
+        "summary": "get all the orders",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/newOrder": {
+      "post": {
+        "description": "create a new order",
+        "summary": "care men working!!",
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/deleteOrder/{id}": {
+      "delete": {
+        "description": "with an order id, delete it",
+        "summary": "delete an order",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/api-docs": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
     }
-  }
+    
+    
+    
+  },
+  "definitions":{
+    "dish": {
+      "type": "object",
+      "required":[
+        "id",
+        "name", 
+        "weight",
+        "people",
+        "takeHome",
+        "add",
+        "price"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+          
+        },
+        "name": {
+          "type": "string"
+        },
+        "weight": {
+          "type": "string"
+        },
+        "people": {
+          "type": "string"
+        },
+        "takeHome": {
+          "type": "string"
+        },
+        "add": {
+          "type": "array",
+          "items":{
+            "type": "string"
+          }
+        },
+        "price": {
+          "type": "string"
+        }
+      }
+    },
+    "Book": {
+      "type": "object",
+      "required": [
+        "titleBook",
+        "genre",
+        "author"
+      ],
+      "properties": {
+        
+        "titleBook": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        },
+        "genre": {
+          "type": "string"
+        }
+        
+      }
+    }
+    
+
+    }
 }

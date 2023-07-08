@@ -4,6 +4,17 @@ const ObjectId = require('mongodb').ObjectId;
 
 
 
+////////To get all the ADMINS in database
+exports.getAllorders = async (req, res, next) => {
+  try {
+    const orders = await orderData.find({});
+    res.status(200).json(orders);
+  } catch (error) {
+    res.status(400);
+    next(error);
+  }
+};
+
 ////////To create a new ORDER in database
 exports.newOrder = (req, res) => {
 
