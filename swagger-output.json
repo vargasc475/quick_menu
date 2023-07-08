@@ -2,19 +2,18 @@
   "swagger": "2.0",
   "info": {
     "title": "API Dishes",
-    "description": "QUICK MENU PROJECT",
+    "description": "This the final project",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "quick-menu-zd4e.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/getDishes": {
       "get": {
-        "description": "only push try it out and get all dishes",
-        "summary": "get all the dishes",
+        "description": "",
         "responses": {
           "200": {
             "description": "OK"
@@ -27,18 +26,7 @@
     },
     "/newDish": {
       "post": {
-        "summary": "Create a new dish",
-        "description": "fill the fields and create a new dish",
-        "parameters":[
-          {
-            "name": "body",
-            "in": "body",
-            "schema":{
-              "type": "object",
-              "$ref": "#/definitions/dish"
-            }
-          }
-        ],
+        "description": "",
         "responses": {
           "201": {
             "description": "Created"
@@ -51,8 +39,7 @@
     },
     "/deleteDish/{id}": {
       "delete": {
-        "description": "set an id and delete ay dish",
-        "summary": "Delete any dish",
+        "description": "",
         "parameters": [
           {
             "name": "id",
@@ -73,8 +60,7 @@
     },
     "/getDesserts": {
       "get": {
-        "description": "Try it out and get all the desserts",
-        "summary": "get all desserts",
+        "description": "",
         "responses": {
           "200": {
             "description": "OK"
@@ -87,8 +73,7 @@
     },
     "/newDessert": {
       "post": {
-        "description": "upload a new dessert",
-        "summary":"care men working!",
+        "description": "",
         "responses": {
           "201": {
             "description": "Created"
@@ -101,8 +86,7 @@
     },
     "/deleteDessert/{id}": {
       "delete": {
-        "description": "set any dessert id and delete a delete",
-        "summary": "delete any dessert",
+        "description": "",
         "parameters": [
           {
             "name": "id",
@@ -123,8 +107,7 @@
     },
     "/getAdmin": {
       "get": {
-        "description": "Try it out and get all admins",
-        "summary": "get all admins",
+        "description": "",
         "responses": {
           "200": {
             "description": "OK"
@@ -137,8 +120,7 @@
     },
     "/newAdmin": {
       "post": {
-        "description": "create a new admin",
-        "summary": "care men working!!!!!!!!!!!",
+        "description": "",
         "responses": {
           "201": {
             "description": "Created"
@@ -151,8 +133,7 @@
     },
     "/deleteAdmin/{id}": {
       "delete": {
-        "description": "With any admin id delete it",
-        "summary": "delete an admin",
+        "description": "",
         "parameters": [
           {
             "name": "id",
@@ -173,8 +154,7 @@
     },
     "/getOrders": {
       "get": {
-        "description": "try it out and get all orders",
-        "summary": "get all the orders",
+        "description": "",
         "responses": {
           "200": {
             "description": "OK"
@@ -187,8 +167,7 @@
     },
     "/newOrder": {
       "post": {
-        "description": "create a new order",
-        "summary": "care men working!!",
+        "description": "",
         "responses": {
           "201": {
             "description": "Created"
@@ -201,8 +180,7 @@
     },
     "/deleteOrder/{id}": {
       "delete": {
-        "description": "with an order id, delete it",
-        "summary": "delete an order",
+        "description": "",
         "parameters": [
           {
             "name": "id",
@@ -231,72 +209,5 @@
         }
       }
     }
-    
-    
-    
-  },
-  "definitions":{
-    "dish": {
-      "type": "object",
-      "required":[
-        "id",
-        "name", 
-        "weight",
-        "people",
-        "takeHome",
-        "add",
-        "price"
-      ],
-      "properties": {
-        "id": {
-          "type": "string"
-          
-        },
-        "name": {
-          "type": "string"
-        },
-        "weight": {
-          "type": "string"
-        },
-        "people": {
-          "type": "string"
-        },
-        "takeHome": {
-          "type": "string"
-        },
-        "add": {
-          "type": "array",
-          "items":{
-            "type": "string"
-          }
-        },
-        "price": {
-          "type": "string"
-        }
-      }
-    },
-    "Book": {
-      "type": "object",
-      "required": [
-        "titleBook",
-        "genre",
-        "author"
-      ],
-      "properties": {
-        
-        "titleBook": {
-          "type": "string"
-        },
-        "author": {
-          "type": "string"
-        },
-        "genre": {
-          "type": "string"
-        }
-        
-      }
-    }
-    
-
-    }
+  }
 }
