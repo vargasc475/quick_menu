@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "API DISHES",
+    "title": "API Dishes",
     "description": "This the final project",
     "version": "1.0.0"
   },
@@ -11,30 +11,9 @@
     "http"
   ],
   "paths": {
-    "/api-docs": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {}
-      }
-    }, 
     "/newDish": {
       "post": {
-        "summary": "add new dish",
-        "description": "Below, add new data in the json to create a new dish",
-        "parameters": [
-            {
-              "name": "body",
-              "in": "body",
-              "schema":{
-                "type": "object",
-              
-                "$ref":"#/definitions/dish"
-                
-              }
-            }
-
-        ],
+        "description": "",
         "responses": {
           "201": {
             "description": "Created"
@@ -47,121 +26,24 @@
     },
     "/deleteDish/{id}": {
       "delete": {
-        "summary": "delete a dish",
-        "description": "add an id to erase a dish",
+        "description": "",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
-          }   
-
+          }
         ],
         "responses": {
-          "201": {
-            "description": "Created"
+          "200": {
+            "description": "OK"
           },
-          "500": {
-            "description": "Internal Server Error"
+          "400": {
+            "description": "Bad Request"
           }
         }
       }
-    },
-    "/newDessert": {
-      "post": {
-        "summary": "add new dessert",
-        "description": "Below, add new data in the json to create a new dessert",
-        "parameters": [
-            {
-              "name": "body",
-              "in": "body",
-              "schema":{
-                "type": "object",
-              
-                "$ref":"#/definitions/dessert"
-                
-              }
-            }
-
-        ],
-        "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/deleteDessert/{id}": {
-      "delete": {
-        "summary": "delete a dessert",
-        "description": "add a id to erase a dessert",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }   
-
-        ],
-        "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    }
-  },
-  "definitions":{
-    "dish": {
-      "type": "object",
-      "required":[
-        "name",
-        "description", 
-        "price"
-      ],
-      "properties": {
-        "name": {
-          "type": "string"
-          
-        },
-        "description": {
-          "type": "string"
-        },
-        "price": {
-          "type": "string"
-        }
-      }
-    },
-    "dessert": {
-      "type": "object",
-      "required": [
-        "name",
-        "description",
-        "price"
-      ],
-      "properties": {
-        
-        "name": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "price": {
-          "type": "string"
-        }
-        
-      }
-    }
-    
-
     }
   }
+}
