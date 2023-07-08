@@ -2,11 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "API Dishes",
-<<<<<<< HEAD
     "description": "QUICK MENU PROJECT",
-=======
-    "description": "This the final project",
->>>>>>> origin/main
     "version": "1.0.0"
   },
   "host": "localhost:3000",
@@ -15,7 +11,6 @@
     "http"
   ],
   "paths": {
-<<<<<<< HEAD
     "/getDishes": {
       "get": {
         "description": "only push try it out and get all dishes",
@@ -44,11 +39,6 @@
             }
           }
         ],
-=======
-    "/newDish": {
-      "post": {
-        "description": "",
->>>>>>> origin/main
         "responses": {
           "201": {
             "description": "Created"
@@ -61,7 +51,6 @@
     },
     "/deleteDish/{id}": {
       "delete": {
-<<<<<<< HEAD
         "description": "set an id and delete ay dish",
         "summary": "Delete any dish",
         "parameters": [
@@ -310,26 +299,4 @@
     
 
     }
-=======
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          }
-        }
-      }
-    }
-  }
->>>>>>> origin/main
 }
