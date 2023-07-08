@@ -1,0 +1,42 @@
+[
+    {
+        "client": "Christian Vargas",
+        "table": "4",
+        "dishes": {
+            "Salmon con arroz verde": {
+                "adds": ["false"],
+                "amount": "1"
+            },
+            "Chicharron de cachete y guacamole": {
+                "adds": ["false"],
+                "amount": "1"
+            }
+            },
+        "desserts": ["Profiteroles with hot chocolate"],
+        "totalPrice": "$475.00"
+    },
+    {
+        "client": "Moises Parra",
+        "table": "1",
+        "dishes": {
+            "Pulpo a la parrilla": {
+                "adds": ["false"],
+                "amount": "2"
+            }
+        },
+        "desserts": ["false"],
+        "totalPrice": "$800.00"
+    },
+    {
+        "client": "Luis Rojas",
+        "table": "3",
+        "dishes": {
+            "Chicharron de cachete y guacamole": {
+                "adds": ["false"],
+                "amount": "2"
+            }
+        },
+        "desserts": ["Glass of ice cream assorted", "Glass of ice cream assorted"],
+        "totalPrice": "$380.00"
+    }
+]

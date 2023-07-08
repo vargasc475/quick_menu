@@ -1,0 +1,23 @@
+[
+    {
+        "id": "cake",
+        "name": "Profiteroles with hot chocolate",
+        "people": "2",
+        "takeHome": "Available",
+        "price": "$10.00"
+    },
+    {
+        "id": "ice-cream",
+        "name": "Glass of ice cream assorted",
+        "people": "1",
+        "takeHome": "Not available",
+        "price": "$5.00"
+    },
+    {
+        "id": "cake",
+        "name": "Chocolate cake",
+        "people": "2",
+        "takeHome": "Available",
+        "price": "$7.00"
+    }
+]
