@@ -17,8 +17,10 @@ module.exports = (mongoose) => {
       required: false,
     },
     dish : {
-      type: Schema.Types.ObjectId, ref: 'dishes'
+      type: Schema.Types.ObjectId, ref: 'dishes',
+      required: true
       },
+   
        
    
     dessert : { type: Schema.Types.ObjectId, ref: 'desserts', required: false},
