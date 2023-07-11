@@ -93,7 +93,17 @@
     "/newDessert": {
       "post": {
         "description": "upload a new dessert",
-        "summary":"care men working!",
+        "summary":"fill the json and create a new dessert",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema":{
+              "type": "object",
+              "$ref": "#/definitions/dessert"
+            }
+          }
+        ],
         "responses": {
           "201": {
             "description": "Created"
@@ -143,7 +153,17 @@
     "/newAdmin": {
       "post": {
         "description": "create a new admin",
-        "summary": "care men working!!!!!!!!!!!",
+        "summary": "fill the json and create a new user",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema":{
+              "type": "object",
+              "$ref": "#/definitions/admin"
+            }
+          }
+        ],
         "responses": {
           "201": {
             "description": "Created"
@@ -193,7 +213,17 @@
     "/newOrder": {
       "post": {
         "description": "create a new order",
-        "summary": "care men working!!",
+        "summary": "fill the json and create a new order",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema":{
+              "type": "object",
+              "$ref": "#/definitions/order"
+            }
+          }
+        ],
         "responses": {
           "201": {
             "description": "Created"
@@ -280,24 +310,77 @@
         }
       }
     },
-    "Book": {
+    "dessert": {
       "type": "object",
       "required": [
-        "titleBook",
-        "genre",
-        "author"
+        "id",
+        "people",
+        "takeHome",
+        "price"
       ],
       "properties": {
         
-        "titleBook": {
+        "id": {
           "type": "string"
         },
-        "author": {
+        "people": {
           "type": "string"
         },
-        "genre": {
+        "takeHome": {
+          "type": "string"
+        },
+        "price":{
           "type": "string"
         }
+        
+      }
+    },
+    "admin": {
+      "type": "object",
+      "required": [
+        "user",
+        "password"
+      ],
+      "properties": {
+        
+        "user": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+        
+      }
+    },
+    "order": {
+      "type": "object",
+      "required": [
+        "client",
+        "table",
+        "dish",
+        "dessert",
+        "totalPrice"
+      ],
+      "properties": {
+        
+        "client": {
+          "type": "string"
+        },
+        "table": {
+          "type": "string"
+        },
+        "dish": {
+          "type": "string"
+        },
+        "dessert": {
+          "type": "string"
+        },
+        "totalPrice": {
+          "type": "string"
+        }
+
+      
+        
         
       }
     }

@@ -88,17 +88,10 @@ POST http://localhost:3000/newOrder
 content-type: application/json
 
 {
-  "client": "client100000",
+  "client": "client000",
   "table": "10",
-  "dishOrder":{
-     "dish": "64a89b340621c7f2ca749fdc",
-     "amount": 3
-}
-  ,
-  "dessert":
-    "64a89d5d0621c7f2ca749fe0"
-   
-  ,
+  "dish": "64a89b340621c7f2ca749fdc",
+  "dessert":"64a89d5d0621c7f2ca749fe0",
   "totalPrice": 1000 
 }
 
