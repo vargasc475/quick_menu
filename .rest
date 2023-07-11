@@ -42,9 +42,10 @@ POST http://localhost:3000/newDessert
 content-type: application/json
 
 {
-  "name": "dessert01",
-  "description": "desert01", 
-  "price": "$100"
+  "name": "typedata01",
+  "people": "typedata01", 
+  "takeHome": "typedata01",
+  "price": "300"
 }
 ###
 
@@ -87,10 +88,21 @@ POST http://localhost:3000/newOrder
 content-type: application/json
 
 {
-  "dish": "order01",
-  "dessert": "dessert01",
-  "date": "order01" 
+  "client": "client100000",
+  "table": "10",
+  "dishOrder":{
+     "dish": "64a89b340621c7f2ca749fdc",
+     "amount": 3
 }
+  ,
+  "dessert":
+    "64a89d5d0621c7f2ca749fe0"
+   
+  ,
+  "totalPrice": 1000 
+}
+
+ 
 ###
 
 ###DELETE METHOD ORDER###############

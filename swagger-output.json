@@ -11,8 +11,12 @@
     "http"
   ],
   "paths": {
+    
     "/getDishes": {
+      
+      
       "get": {
+        
         "description": "only push try it out and get all dishes",
         "summary": "get all the dishes",
         "responses": {
@@ -71,6 +75,7 @@
         }
       }
     },
+   
     "/getDesserts": {
       "get": {
         "description": "Try it out and get all the desserts",

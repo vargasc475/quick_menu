@@ -1,19 +1,30 @@
 const db = require('../models');
 const orderData = db.orders;
+
 const ObjectId = require('mongodb').ObjectId;
 
 
 
 ////////To get all the ADMINS in database
+
 exports.getAllorders = async (req, res, next) => {
   try {
-    const orders = await orderData.find({});
+    const orders = await orderData.find({}).populate('dish', 'name').populate('dessert', 'id');
     res.status(200).json(orders);
   } catch (error) {
     res.status(400);
     next(error);
   }
 };
+
+/*
+exports.getAllorders = function (req, res){
+  orderData.find({}, function (err, orders) {
+    dishesData.populate(orders, { path: "dishes" }, function (err, orders) {
+      res.status(200).send(orders);
+    });
+  });
+};*/
 
 ////////To create a new ORDER in database
 exports.newOrder = (req, res) => {
