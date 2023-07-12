@@ -3,17 +3,6 @@ const dishData = db.dishes;
 const ObjectId = require('mongodb').ObjectId;
 //const { ObjectId } = require('mongodb');
 
-////////To get all the DISHes in database
-exports.getAlldishes = async (req, res, next) => {
-  try {
-    const dishes = await dishData.find({});
-    res.status(200).json(dishes);
-  } catch (error) {
-    res.status(400);
-    next(error);
-  }
-};
-
 
 ////////To create a new DISH in database
 exports.newDish = (req, res) => {

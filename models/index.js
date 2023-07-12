@@ -7,7 +7,7 @@ const db = {};
 db.mongoose = mongoose;
 db.url = dbConfig.url;
 db.dishes = require('./dishes.js')(mongoose);
-db.desserts = require('./dessert')(mongoose);
+db.dessets = require('./dessert')(mongoose);
 db.admins = require('./admin')(mongoose);
 db.orders = require('./order')(mongoose);
 

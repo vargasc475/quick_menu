@@ -3,11 +3,8 @@ const router = express.Router();
 
 const orderController = require('../controllers/order');
 
-router.get('/getOrders', orderController.getAllorders);
 router.post('/newOrder', orderController.newOrder);
 router.delete('/deleteOrder/:id', orderController.orderDelete);
-
-
 
 
 

@@ -1,11 +1,11 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "API Dishes",
+    "title": "API DISHES",
     "description": "This the final project",
     "version": "1.0.0"
   },
-  "host": "quick-menu-zd4e.onrender.com",
+  "host": "localhost:3000",
   "basePath": "/",
   "tags": [
     {
@@ -26,7 +26,7 @@
     }
   ],
   "schemes": [
-    "https"
+    "http"
   ],
   "paths": {
     
@@ -44,7 +44,7 @@
           }
         }
       }
-    },
+    }, 
     "/newDish": {
       "post": {
         "tags":["dishes"],
@@ -81,11 +81,12 @@
             "in": "path",
             "required": true,
             "type": "string"
-          }
+          }   
+
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "201": {
+            "description": "Created"
           },
           "400": {
             "description": "Bad Request"
@@ -145,7 +146,8 @@
             "in": "path",
             "required": true,
             "type": "string"
-          }
+          }   
+
         ],
         "responses": {
           "200": {

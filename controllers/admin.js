@@ -4,19 +4,6 @@ const ObjectId = require('mongodb').ObjectId;
 
 
 
-////////To get all the ADMINS in database
-exports.getAlladmins = async (req, res, next) => {
-  try {
-    const admins = await adminData.find({});
-    res.status(200).json(admins);
-  } catch (error) {
-    res.status(400);
-    next(error);
-  }
-};
-
-
-
 ////////To create a new ADMIN in database
 exports.newAdmin = (req, res) => {
 

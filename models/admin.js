@@ -14,6 +14,6 @@ module.exports = (mongoose) => {
   });
   
 
-  return mongoose.model('admins', adminSchema)
+  return mongoose.model('admin', adminSchema)
 
 }

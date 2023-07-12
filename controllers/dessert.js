@@ -1,20 +1,7 @@
 const db = require('../models');
-const dessertData = db.desserts;
+const dessertData = db.dessets;
 const ObjectId = require('mongodb').ObjectId;
 //const { ObjectId } = require('mongodb');
-
-
-
-////////To get all the DESSERTS in database
-exports.getAlldesserts = async (req, res, next) => {
-  try {
-    const desserts = await dessertData.find({});
-    res.status(200).json(desserts);
-  } catch (error) {
-    res.status(400);
-    next(error);
-  }
-};
 
 
 ////////To create a new DESSERT in database
