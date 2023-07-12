@@ -1,20 +1,36 @@
 const { ObjectId } = require('mongodb');
 const mongoose = require('mongoose');
+//const { desserts } = require('.');
+const Schema = mongoose.Schema;
+const dishes = mongoose.model('dishes');
+const desserts = mongoose.model('desserts');
+
 
 module.exports = (mongoose) => {
   const orderSchema = mongoose.Schema({
-    dish: {
+    client: {
       type: String,
       required: true,
     },
-    dessert: {
+    table: {
       type: String,
       required: false,
     },
-    date: {
-      type: String,
-      required: true,
+    dish : {
+      type: Schema.Types.ObjectId, ref: 'dishes',
+      required: true
+      },
+   
+       
+   
+    dessert : { type: Schema.Types.ObjectId, ref: 'desserts', required: false},
+      
+    
+   
+    totalPrice:{
+      type: Number
     }
+
   });
   
 
