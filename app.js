@@ -50,6 +50,18 @@ app.get('/auth/protected', isLoggedIn, (req, res) => {
     res.send(`Hello ${name}, you are logged in.`)
 })
 
+app.get('/logout', function(req, res, next) {
+    req.logout(function(err) {
+        if (err) { return next(err); }
+        res.send('Logged Out');
+    });
+});
+
+// app.get('/', (req, res) => {
+//     res.send('Logged Out');
+// });
+
+
 app.use((req, res, next)=>{
     res.setHeader('Access-Control-Allow-Origin', '*');
     next();
