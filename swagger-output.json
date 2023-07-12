@@ -2,10 +2,10 @@
   "swagger": "2.0",
   "info": {
     "title": "API Dishes",
-    "description": "QUICK MENU PROJECT",
+    "description": "This the final project",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "quick-menu-zd4e.onrender.com",
   "basePath": "/",
   "tags": [
     {
@@ -26,7 +26,7 @@
     }
   ],
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     

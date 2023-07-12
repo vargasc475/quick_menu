@@ -5,8 +5,8 @@ const doc = {
     title: 'API Dishes',
     description: 'This the final project',
   },
-  host: 'localhost:3000',
-  schemes: ['http'],
+  host: 'quick-menu-zd4e.onrender.com',
+  schemes: ['https'],
 };
 
 const outputFile = './swagger-output.json';
