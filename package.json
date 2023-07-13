@@ -11,6 +11,9 @@
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
     "start": "nodemon app.js"
   },
+  "engines": {
+    "node": ">=0.6.6"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
