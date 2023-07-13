@@ -3,17 +3,23 @@ const mongoose = require('mongoose');
 
 module.exports = (mongoose) => {
   const dessertSchema = mongoose.Schema({
-    name: {
-      type: String,
-      required: true,
+    id: {
+      type: String
     },
-    description: {
-      type: String,
-      required: true,
+    name: {
+      type: String
+    },
+    people: {
+      type: Number
+    },
+    takeHome: {
+      type: String
+    },
+    takeHome: {
+      type: String
     },
     price: {
-      type: String,
-      required: true,
+      type: Number
     }
   });
   
