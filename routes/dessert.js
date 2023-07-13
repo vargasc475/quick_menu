@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 
 const dessertController = require('../controllers/dessert');
+const { isAuthenticated } = require('../middleware/authenticate');
 
-router.post('/newDessert', dessertController.newDessert);
-router.delete('/deleteDessert/:id', dessertController.dessertDelete);
+router.post('/newDessert', isAuthenticated, dessertController.newDessert);
+router.delete('/deleteDessert/:id', isAuthenticated, dessertController.dessertDelete);
 
 
 
