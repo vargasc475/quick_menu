@@ -1,0 +1,104 @@
+////////////DISHES METHODS////////////
+###GET DISHES METHOD###############
+GET http://localhost:3000/getDishes 
+
+###
+
+###POST METHOD DISHES###############
+POST http://localhost:3000/newDish 
+content-type: application/json
+
+{
+  "id": "dish03",
+  "name": "desc03", 
+  "weight": "$1000",
+  "people": "dish03",
+  "takeHome": "desc03", 
+  "add": [
+    "sddsd",
+    "sdasd"
+],
+ 
+  "price": "$1000"
+}
+###
+
+###DELETE METHOD DISHES###############
+DELETE  http://localhost:3000/deleteDish/64a904c11bb3e132dc094f76
+content-type: application/json
+
+
+############################
+
+////////////DESSERTS METHODS////////////
+###GET DESSEERT METHOD###############
+GET http://localhost:3000/getDesserts 
+
+###
+
+
+###POST METHOD DESSERTS###############
+POST http://localhost:3000/newDessert 
+content-type: application/json
+
+{
+  "name": "typedata01",
+  "people": "typedata01", 
+  "takeHome": "typedata01",
+  "price": "300"
+}
+###
+
+###DELETE METHOD DESSERTS###############
+DELETE  http://localhost:3000/deleteDessert/64a90fb8584e140786f2eab6
+content-type: application/json
+###
+
+############################
+
+////////////DESSERTS METHODS////////////
+###GET DESSEERT METHOD###############
+GET http://localhost:3000/getAdmin 
+
+###
+###POST METHOD ADMIN###############
+POST http://localhost:3000/newAdmin 
+content-type: application/json
+
+{
+  "user": "passwordtest",
+  "password": "12345test"
+}
+###
+
+###DELETE METHOD ADMIN###############
+DELETE  http://localhost:3000/deleteAdmin/64a6fb51fd978bd7d08deb0b 
+content-type: application/json
+###
+
+
+////////////ORDER METHODS////////////
+###GET ORDER METHOD###############
+GET http://localhost:3000/getOrders 
+
+###
+
+###POST METHOD ORDER###############
+POST http://localhost:3000/newOrder 
+content-type: application/json
+
+{
+  "client": "client000",
+  "table": "10",
+  "dish": "64a89b340621c7f2ca749fdc",
+  "dessert":"64a89d5d0621c7f2ca749fe0",
+  "totalPrice": 1000 
+}
+
+ 
+###
+
+###DELETE METHOD ORDER###############
+DELETE  http://localhost:3000/deleteOrder/64a9104f584e140786f2eabb 
+content-type: application/json
+###

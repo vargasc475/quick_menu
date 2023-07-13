@@ -1,11 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const passport = require('passport');
+
+//const passport = require('passport');
+
+
 router.use('/',require("./swagger"));
-router.use('/admin',require("./amin"));
-router.use('/desserts',require("./desserts"));
-router.use('/dishes',require("./dishes"));
-router.use('/orders',require("./orders"));
+router.use('/',require("./amin"));
+router.use('/',require("./desserts"));
+router.use('/',require("./dishes"));
+router.use('/',require("./orders"));
 
 /*
 router.get('/login', passport.authenticate('github'), (req, res) => {});

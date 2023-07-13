@@ -1,7 +1,19 @@
 const mongodb =  require('../data/database');
+const adminData = db.admins; // agregado
 const ObjectId = require('mongodb').ObjectId;
 
-const getAllAdmins = async (req,res)=>{
+
+////////To get all the ADMINS in database
+exports.getAlladmins = async (req, res, next) => {
+  try {
+    const admins = await adminData.find({});
+    res.status(200).json(admins);
+  } catch (error) {
+    res.status(400);
+    next(error);
+  }
+};
+/*const getAllAdmins = async (req,res)=>{
     const result = await mongodb.getDatabase().db().collection('admin').find();
     result.toArray().then((users)=>{
    try{
@@ -21,18 +33,12 @@ const getSingleAdmin = async (req,res)=>{
     res.status(200).json(users[0]);    
     }catch(err){
       res.status(400).json(err.message)
-  }})};
+  }})};*/
 
+/*
 const newAdmin =  async (req,res)=>{//POST
     const added = {
 
-        /*
-        Name: req.body.Name,                INDICAR CAMPOS
-        Capital: req.body.Capital,
-        area: req.body.area,
-        habitants: req.body.habitants,
-        independence: req.body.independence,
-        continent:req.body.continent */
     };
     const result = await mongodb.getDatabase().db().collection('admin').insertOne(added);
     if (result.acknowledged){
@@ -41,17 +47,49 @@ const newAdmin =  async (req,res)=>{//POST
         res.status(500).json(result.console.error('New admin was no created'));
       }
        
+};*/
+
+////////To create a new ADMIN in database
+exports.newAdmin = (req, res) => {
+
+  const postAdmin = new adminData(req.body);
+
+  postAdmin
+    .save()
+    .then((data) => {
+      console.log(data);
+      res.status(201).send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || 'Some error occurred while creating the user.'
+      });
+    });
 };
 
+
+////////METHOD To DELETE ADMIN in database BY ID
+exports.adminDelete = ('/:id', async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const adminToDelete = await adminData.findByIdAndDelete(id);
+    res.status(200).json(this.adminToDelete);
+  } catch (error) {
+    res.status(400);
+    next(error);
+  }
+});
+/*
 const updateAdmin =  async (req,res)=>{ //PUT
     const userId = new ObjectId(req.params.id);
     const added = {
-     /* Name: req.body.Name,        INDICAR CAMPOS
+     Name: req.body.Name,        INDICAR CAMPOS
       Capital: req.body.Capital,
       area: req.body.area,
       habitants: req.body.habitants,
       independence: req.body.independence,
-      continent:req.body.continent */
+      continent:req.body.continent *
+    
     };
 
     const result = await mongodb.getDatabase().db().collection('admin').replaceOne({_id:userId},added);
@@ -76,4 +114,4 @@ const deleteAdmin =  async (req,res)=>{ //DELETE
 };
 
 
-module.exports = {getAllAdmins,getSingleAdmin, newAdmin,updateAdmin,deleteAdmin};
+module.exports = {getAllAdmins,getSingleAdmin, newAdmin,updateAdmin,deleteAdmin};*/

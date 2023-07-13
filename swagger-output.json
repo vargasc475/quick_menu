@@ -1,0 +1,419 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "API DISHES",
+      "description": "This the final project",
+      "version": "1.0.0"
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "dishes",
+        "description": "Operations about dishes"
+      },
+      {
+        "name": "desserts",
+        "description": "Operations about desserts"
+      },
+      {
+        "name": "admin",
+        "description": "Operations for Admins"
+      },
+      {
+        "name": "order",
+        "description": "Operations for Orders"
+      }
+    ],
+    "schemes": [
+      "http"
+    ],
+    "paths": {
+      
+      "/getDishes": {   
+        "get": {
+          "tags":["dishes"],
+          "description": "only push try it out and get all dishes",
+          "summary": "get all the dishes",
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "400": {
+              "description": "Bad Request"
+            }
+          }
+        }
+      }, 
+      "/newDish": {
+        "post": {
+          "tags":["dishes"],
+          "summary": "Create a new dish",
+          "description": "fill the fields and create a new dish",
+          "parameters":[
+            {
+              "name": "body",
+              "in": "body",
+              "schema":{
+                "type": "object",
+                "$ref": "#/definitions/dish"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Created"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      },
+      "/deleteDish/{id}": {
+        "delete": {
+          "tags":["dishes"],
+          "description": "set an id and delete ay dish",
+          "summary": "Delete any dish",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }   
+  
+          ],
+          "responses": {
+            "201": {
+              "description": "Created"
+            },
+            "400": {
+              "description": "Bad Request"
+            }
+          }
+        }
+      },
+     
+      "/getDesserts": {
+        "get": {
+          "tags": ["desserts"],
+          "description": "Try it out and get all the desserts",
+          "summary": "get all desserts",
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "400": {
+              "description": "Bad Request"
+            }
+          }
+        }
+      },
+      "/newDessert": {
+        "post": {
+          "tags": ["desserts"],
+          "description": "upload a new dessert",
+          "summary":"fill the json and create a new dessert",
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "schema":{
+                "type": "object",
+                "$ref": "#/definitions/dessert"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Created"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      },
+      "/deleteDessert/{id}": {
+        "delete": {
+          "tags": ["desserts"],
+          "description": "set any dessert id and delete a delete",
+          "summary": "delete any dessert",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }   
+  
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "400": {
+              "description": "Bad Request"
+            }
+          }
+        }
+      },
+      "/getAdmin": {
+        "get": {
+          "tags": ["admin"],
+          "description": "Try it out and get all admins",
+          "summary": "get all admins",
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "400": {
+              "description": "Bad Request"
+            }
+          }
+        }
+      },
+      "/newAdmin": {
+        "post": {
+          "tags": ["admin"],
+          "description": "create a new admin",
+          "summary": "fill the json and create a new user",
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "schema":{
+                "type": "object",
+                "$ref": "#/definitions/admin"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Created"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      },
+      "/deleteAdmin/{id}": {
+        "delete": {
+          "tags": ["admin"],
+          "description": "With any admin id delete it",
+          "summary": "delete an admin",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "400": {
+              "description": "Bad Request"
+            }
+          }
+        }
+      },
+      "/getOrders": {
+        "get": {
+          "tags": ["order"],
+          "description": "try it out and get all orders",
+          "summary": "get all the orders",
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "400": {
+              "description": "Bad Request"
+            }
+          }
+        }
+      },
+      "/newOrder": {
+        "post": {
+          "tags": ["order"],
+          "description": "create a new order",
+          "summary": "fill the json and create a new order",
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "schema":{
+                "type": "object",
+                "$ref": "#/definitions/order"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Created"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      },
+      "/deleteOrder/{id}": {
+        "delete": {
+          "tags":["order"],
+          "description": "with an order id, delete it",
+          "summary": "delete an order",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "400": {
+              "description": "Bad Request"
+            }
+          }
+        }
+      },
+      "/api-docs": {
+        "get": {
+          "description": "",
+          "responses": {
+            "default": {
+              "description": ""
+            }
+          }
+        }
+      }
+      
+      
+      
+    },
+    "definitions":{
+      "dish": {
+        "type": "object",
+        "required":[
+          "id",
+          "name", 
+          "weight",
+          "people",
+          "takeHome",
+          "add",
+          "price"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+            
+          },
+          "name": {
+            "type": "string"
+          },
+          "weight": {
+            "type": "string"
+          },
+          "people": {
+            "type": "string"
+          },
+          "takeHome": {
+            "type": "string"
+          },
+          "add": {
+            "type": "array",
+            "items":{
+              "type": "string"
+            }
+          },
+          "price": {
+            "type": "string"
+          }
+        }
+      },
+      "dessert": {
+        "type": "object",
+        "required": [
+          "id",
+          "people",
+          "takeHome",
+          "price"
+        ],
+        "properties": {
+          
+          "id": {
+            "type": "string"
+          },
+          "people": {
+            "type": "string"
+          },
+          "takeHome": {
+            "type": "string"
+          },
+          "price":{
+            "type": "string"
+          }
+          
+        }
+      },
+      "admin": {
+        "type": "object",
+        "required": [
+          "user",
+          "password"
+        ],
+        "properties": {
+          
+          "user": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+          
+        }
+      },
+      "order": {
+        "type": "object",
+        "required": [
+          "client",
+          "table",
+          "dish",
+          "dessert",
+          "totalPrice"
+        ],
+        "properties": {
+          
+          "client": {
+            "type": "string"
+          },
+          "table": {
+            "type": "string"
+          },
+          "dish": {
+            "type": "string"
+          },
+          "dessert": {
+            "type": "string"
+          },
+          "totalPrice": {
+            "type": "string"
+          }
+  
+        
+          
+          
+        }
+      }
+      
+  
+      }
+  }

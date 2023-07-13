@@ -1,4 +1,63 @@
-const mongodb =  require('../data/database');
+const db = require('../models');
+const orderData = db.orders;
+
+const ObjectId = require('mongodb').ObjectId;
+
+
+
+////////To get all the ADMINS in database
+
+exports.getAllorders = async (req, res, next) => {
+  try {
+    const orders = await orderData.find({}).populate('dish', 'name').populate('dessert', 'id');
+    res.status(200).json(orders);
+  } catch (error) {
+    res.status(400);
+    next(error);
+  }
+};
+
+/*
+exports.getAllorders = function (req, res){
+  orderData.find({}, function (err, orders) {
+    dishesData.populate(orders, { path: "dishes" }, function (err, orders) {
+      res.status(200).send(orders);
+    });
+  });
+};*/
+
+////////To create a new ORDER in database
+exports.newOrder = (req, res) => {
+
+  const postOrder = new orderData(req.body);
+
+  postOrder
+    .save()
+    .then((data) => {
+      console.log(data);
+      res.status(201).send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || 'Some error occurred while creating the user.'
+      });
+    });
+};
+
+
+
+////////METHOD To DELETE ORDER in database BY ID
+exports.orderDelete = ('/:id', async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const orderToDelete = await orderData.findByIdAndDelete(id);
+    res.status(200).json(this.orderToDelete);
+  } catch (error) {
+    res.status(400);
+    next(error);
+  }
+});
+/*const mongodb =  require('../data/database');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAllOrders = async (req,res)=>{
@@ -26,13 +85,7 @@ const getSingleOrder = async (req,res)=>{
 const newOrder =  async (req,res)=>{//POST
     const added = {
 
-        /*
-        Name: req.body.Name,                INDICAR CAMPOS
-        Capital: req.body.Capital,
-        area: req.body.area,
-        habitants: req.body.habitants,
-        independence: req.body.independence,
-        continent:req.body.continent */
+      
     };
     const result = await mongodb.getDatabase().db().collection('orders').insertOne(added);
     if (result.acknowledged){
@@ -46,12 +99,7 @@ const newOrder =  async (req,res)=>{//POST
 const updateOrder =  async (req,res)=>{ //PUT
     const userId = new ObjectId(req.params.id);
     const added = {
-     /* Name: req.body.Name,        INDICAR CAMPOS
-      Capital: req.body.Capital,
-      area: req.body.area,
-      habitants: req.body.habitants,
-      independence: req.body.independence,
-      continent:req.body.continent */
+
     };
 
     const result = await mongodb.getDatabase().db().collection('orders').replaceOne({_id:userId},added);
@@ -76,4 +124,4 @@ const deleteOrder =  async (req,res)=>{ //DELETE
 };
 
 
-module.exports = {getAllOrders,getSingleOrder, newOrder,updateOrder,deleteOrder};
+module.exports = {getAllOrders,getSingleOrder, newOrder,updateOrder,deleteOrder};*/

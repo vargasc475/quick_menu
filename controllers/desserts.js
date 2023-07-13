@@ -1,4 +1,55 @@
-const mongodb =  require('../data/database');
+const db = require('../models');
+const dessertData = db.desserts;
+const ObjectId = require('mongodb').ObjectId;
+//const { ObjectId } = require('mongodb');
+
+
+
+////////To get all the DESSERTS in database
+exports.getAlldesserts = async (req, res, next) => {
+  try {
+    const desserts = await dessertData.find({});
+    res.status(200).json(desserts);
+  } catch (error) {
+    res.status(400);
+    next(error);
+  }
+};
+
+
+////////To create a new DESSERT in database
+exports.newDessert = (req, res) => {
+
+  const postDessert = new dessertData(req.body);
+
+  postDessert
+    .save()
+    .then((data) => {
+      console.log(data);
+      res.status(201).send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || 'Some error occurred while creating the user.'
+      });
+    });
+};
+
+
+
+////////METHOD To DELETE a DESSERT in database BY ID
+exports.dessertDelete = ('/:id', async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const dessertToDelete = await dessertData.findByIdAndDelete(id);
+    res.status(200).json(this.dessertToDelete);
+  } catch (error) {
+    res.status(400);
+    next(error);
+  }
+});
+
+/*const mongodb =  require('../data/database');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAllDesserts = async (req,res)=>{
@@ -26,13 +77,13 @@ const getSingleDessert = async (req,res)=>{
 const newDessert =  async (req,res)=>{//POST
     const added = {
 
-        /*
+        
         Name: req.body.Name,                INDICAR CAMPOS
         Capital: req.body.Capital,
         area: req.body.area,
         habitants: req.body.habitants,
         independence: req.body.independence,
-        continent:req.body.continent */
+        continent:req.body.continent 
     };
     const result = await mongodb.getDatabase().db().collection('desserts').insertOne(added);
     if (result.acknowledged){
@@ -46,12 +97,12 @@ const newDessert =  async (req,res)=>{//POST
 const updateDessert =  async (req,res)=>{ //PUT
     const userId = new ObjectId(req.params.id);
     const added = {
-     /* Name: req.body.Name,        INDICAR CAMPOS
+     Name: req.body.Name,        INDICAR CAMPOS
       Capital: req.body.Capital,
       area: req.body.area,
       habitants: req.body.habitants,
       independence: req.body.independence,
-      continent:req.body.continent */
+      continent:req.body.continent 
     };
 
     const result = await mongodb.getDatabase().db().collection('desserts').replaceOne({_id:userId},added);
@@ -76,4 +127,4 @@ const deleteDessert =  async (req,res)=>{ //DELETE
 };
 
 
-module.exports = {getAllDesserts,getSingleDessert, newDessert,updateDessert,deleteDessert};
+module.exports = {getAllDesserts,getSingleDessert, newDessert,updateDessert,deleteDessert};*/
