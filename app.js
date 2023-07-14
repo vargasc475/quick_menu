@@ -1,13 +1,14 @@
 const express = require('express');
 const passport = require('passport');
-const session = require('express-session')
+const session = require('express-session');
+const { graphqlHTTP } = require('express-graphql');
 const app = express();
 const parser = require("body-parser");
 var cors = require('cors');
 require('./auth');
 
 //requirements for graphql
-const graphHTTP = require('express-graphql')
+
 const schema = require('./graphql/schema');
 
 app.use(express.urlencoded({ extended: true }));
@@ -26,12 +27,10 @@ app.get('/', (req, res) => {
 });
 
 //route for graphql///////////////////
-app.use('/graphql', graphHTTP.graphqlHTTP(req => {
-  return ({
+app.use('/graphql', graphqlHTTP({
   schema: schema,
   //schema: schema,
   graphiql: true,
-  })
 }));
 
 app.use(session({
