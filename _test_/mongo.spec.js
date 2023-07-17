@@ -37,7 +37,7 @@ describe('insert', () => {
         
     it('should delete a user from the users collection', async () => {
         const users = db.collection('admins')
-        await users.deleteMany({ id: 'user-id' })
+        await users.deleteMany({ id: 'admin-id' })
         const deletedUser = await users.findOne({ id: 'admin-id' });
         expect(deletedUser).toEqual(null)
     })
