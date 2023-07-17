@@ -22,23 +22,23 @@ describe('insert', () => {
         const admin = db.collection('admins');
 
         const mockUser = {
-            id: 'some-user-id',
-            user: 'luis',
+            id: 'user-id',
+            user: 'rojas',
             password: "1011267",
             
         }
 
         await admin.insertOne(mockUser)
 
-        const insertedUser = await admin.findOne({ id: 'some-user-id' });
+        const insertedUser = await admin.findOne({ id: 'user-id' });
 
         expect(insertedUser).toEqual(mockUser)
     },
         
     it('should delete a user from the users collection', async () => {
         const users = db.collection('admins')
-        await users.deleteMany({ id: 'some-user-id' })
-        const deletedUser = await users.findOne({ id: 'some-user-id' });
+        await users.deleteMany({ id: 'user-id' })
+        const deletedUser = await users.findOne({ id: 'user-id' });
         expect(deletedUser).toEqual(null)
     })
 )})
