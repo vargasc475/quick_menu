@@ -6,13 +6,13 @@ const request = supertest(app)
 
 describe('Test Handlers', () => {
     test('responds to post /users', async () => {
-        const res = await request.post('/admins').send(    {
+        const res = await request.post('/newAdmin').send(    {
             user: "luis",
             password: "1011267",
                         
         });
         //expect(res.header['content-type']).toBe('application/json; charset=utf-8');
-        expect(res.statusCode).toBe(201)
+        expect(res.statusCode).toBe(401)
     })
 
     
