@@ -74,7 +74,7 @@ app.use('/', require('./routes'));
     console.log('Web Server is listening at port ' + port);
 });*/
 
-const db = require('./models');
+const db =  require('./models');
 db.mongoose
   .connect(db.url, {
     useNewUrlParser: true,
