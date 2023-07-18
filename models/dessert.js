@@ -15,9 +15,6 @@ module.exports = (mongoose) => {
     takeHome: {
       type: String
     },
-    takeHome: {
-      type: String
-    },
     price: {
       type: Number
     }

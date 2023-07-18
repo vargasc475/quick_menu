@@ -6,25 +6,32 @@ const request = supertest(server);
 //const db = require('./models');
 
 
-describe('Test Handlers', () => {
-    test('responds to /', async () => {
+describe('GET /getAdmin, /getDesserts, /getDishes, /getOrders ', () => {
+    test('GET /getAdmin', async () => {
         const res = await request.get('/getAdmin');
-        //expect(res.header['content-type']).toBe('application/json; charset=utf-8');
+        expect(res.header['content-type']).toBe('application/json; charset=utf-8');
         expect(res.statusCode).toBe(200)
-    })
+    });
 
-  test('responds to /users', async () => {
+  test('GET /getDesserts', async () => {
         const res = await request.get('/getDesserts');
-      //expect(res.header['content-type']).toBe('application/json; charset=utf-8');
+        expect(res.header['content-type']).toBe('application/json; charset=utf-8');
         expect(res.statusCode).toBe(200)
-    })
+    });
 
-  test('responds to /users', async () => {
+
+    test('GET /getDishes', async () => {
         const res = await request.get('/getDishes');
-      //expect(res.header['content-type']).toBe('application/json; charset=utf-8');
+        expect(res.header['content-type']).toBe('application/json; charset=utf-8');
         expect(res.statusCode).toBe(200)
-    })
-})
+    });
+
+    test('GET /getOrders', async () => {
+        const res = await request.get('/getOrders');
+        expect(res.header['content-type']).toBe('application/json; charset=utf-8');
+        expect(res.statusCode).toBe(200)
+    });
+});
 
 /*
 
