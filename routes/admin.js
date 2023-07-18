@@ -6,7 +6,7 @@ const { isAuthenticated } = require('../middleware/authenticate');
 
 router.get('/getAdmin', adminController.getAlladmins);
 router.post('/newAdmin', adminController.newAdmin);
-router.delete('/deleteAdmin/:id', isAuthenticated, adminController.adminDelete);
+router.delete('/deleteAdmin/:id', adminController.adminDelete);
 
 
 
