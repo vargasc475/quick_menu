@@ -7,6 +7,10 @@ const parser = require("body-parser");
 var cors = require('cors');
 require('./auth');
 
+const mongodb = require('./db/connection');
+
+
+
 //requirements for graphql
 
 const schema = require('./graphql/schema');
@@ -68,12 +72,27 @@ app.use((req, res, next)=>{
     
   })
 
+
+
 app.use('/', require('./routes'));
 
 /*app.listen(port, () => {
     console.log('Web Server is listening at port ' + port);
 });*/
 
+mongodb.initDb((err) => {
+  if (err) {
+    console.log(err);
+  } 
+});
+
+/*
+app.listen(port, () => {
+  console.log('Web Server is listening at port ' + port);
+})*/
+
+
+/*
 const db = require('./models');
 db.mongoose
   .connect(db.url, {
@@ -88,6 +107,6 @@ db.mongoose
   .catch((err) => {
     console.log('Cannot connect to the database!', err);
     process.exit();
-  });
+  });*/
 
   module.exports = app;

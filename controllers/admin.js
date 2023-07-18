@@ -20,7 +20,10 @@ exports.getAlladmins = async (req, res, next) => {
 ////////To create a new ADMIN in database
 exports.newAdmin = (req, res) => {
 
-  const postAdmin = new adminData(req.body);
+  const postAdmin = new adminData({
+    user: req.body.user,
+    password: req.body.password,
+  });
 
   postAdmin
     .save()

@@ -6,7 +6,7 @@ const request = supertest(app)
 
 describe('Test Handlers', () => {
     test('responds to post /users', async () => {
-        const res = await request.post('/admins').send(    {
+        const res = await request.post('/newAdmin').send(    {
             user: "luis",
             password: "1011267",
                         
