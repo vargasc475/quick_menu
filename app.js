@@ -6,7 +6,6 @@ const GitHubStrategy = require('passport-github2').Strategy;
 const app = express();
 const parser = require("body-parser");
 var cors = require('cors');
-require('./auth');
 
 const mongodb = require('./db/connection');
 
