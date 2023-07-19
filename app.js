@@ -2,6 +2,7 @@ const express = require('express');
 const passport = require('passport');
 const session = require('express-session');
 const { graphqlHTTP } = require('express-graphql');
+const GitHubStrategy = require('passport-github2').Strategy;
 const app = express();
 const parser = require("body-parser");
 var cors = require('cors');
@@ -47,25 +48,38 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/auth/google',
-  passport.authenticate('google', { scope:
-      [ 'email', 'profile' ] }
+passport.use(new GitHubStrategy({
+  clientID: process.env.GITHUB_CLIENT_ID,
+  clientSecret: process.env.GITHUB_CLIENT_SECRET,
+  callbackURL: process.env.CALLBACK_URL
+},
+function(accesToken, refreshToken, profile, done) {
+  //  User.findOrCreate({ githunid: profile.id }, function (err, user) {
+      return done(null, profile);
+  // })
+}
 ));
 
-app.get('/auth/google/callback',
-    passport.authenticate( 'google', {
-        successRedirect: '/auth/protected',
-        failureRedirect: '/auth/google/failure'
-}));
+passport.serializeUser((user, done) => {
+  done(null, user);
+});
+passport.deserializeUser((user, done) => {
+  done(null, user);
+});
 
-app.get('/auth/google/failure', (req, res) => {
-    res.send("Something went wrong!.")
-})
-app.get('/auth/protected', isLoggedIn, (req, res) => {
-    let name = req.user.displayName;
-    res.send(`Hello ${name}, you are logged in.`)
-})
 
+app.get('/', (req, res) => {res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` : "Logged Out")});
+
+app.get('/github/callback', passport.authenticate('github', {
+    failureRedirect: '/api-docs', session: false}),
+    (req, res) => {
+        req.session.user = req.user;
+        res.redirect('/');
+    });
+
+process.on('uncaughtException', (err, origin) => {
+    console.log(process.stderr.fd, `Caught exception: ${err}\n` + `Exception origin: ${origin}`);
+});
 app.use((req, res, next)=>{
     res.setHeader('Access-Control-Allow-Origin', '*');
     next();
