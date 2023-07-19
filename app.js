@@ -52,7 +52,7 @@ app.get('/auth/google',
       [ 'email', 'profile' ] }
 ));
 
-app.get( '/auth/google/callback',
+app.get('/auth/google/callback',
     passport.authenticate( 'google', {
         successRedirect: '/auth/protected',
         failureRedirect: '/auth/google/failure'
